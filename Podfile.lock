@@ -1,0 +1,23 @@
+PODS:
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - IQKeyboardManagerSwift (4.0.8)
+  - MJRefresh (3.1.12)
+  - SnapKit (3.1.2)
+
+DEPENDENCIES:
+  - FMDB
+  - IQKeyboardManagerSwift
+  - MJRefresh
+  - SnapKit
+
+SPEC CHECKSUMS:
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
+
+PODFILE CHECKSUM: cbb9c55a8b1baf6ca138a71986fb582a5f0a78e0
+
+COCOAPODS: 1.1.1
