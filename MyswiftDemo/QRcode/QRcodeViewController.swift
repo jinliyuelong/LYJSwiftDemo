@@ -4,7 +4,7 @@
 //
 //
 //  Created by Liyanjun on 2017/1/14.
-//  Copyright © 2017年 hand. All rights reserved.
+//  Copyright © 2017年 Liyanjun. All rights reserved.
 //
 
 import UIKit

@@ -510,7 +510,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = hand;
+				ORGANIZATIONNAME = Liyanjun;
 				TargetAttributes = {
 					C56925A81E29D0FC00AF3E5D = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -862,7 +862,7 @@
 				DEVELOPMENT_TEAM = XMRA9CS64A;
 				INFOPLIST_FILE = MyswiftDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hand.MyswiftDemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Liyanjun.MyswiftDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyswiftDemo.app/MyswiftDemo";
@@ -877,7 +877,7 @@
 				DEVELOPMENT_TEAM = XMRA9CS64A;
 				INFOPLIST_FILE = MyswiftDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hand.MyswiftDemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Liyanjun.MyswiftDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyswiftDemo.app/MyswiftDemo";
@@ -891,7 +891,7 @@
 				DEVELOPMENT_TEAM = XMRA9CS64A;
 				INFOPLIST_FILE = MyswiftDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hand.MyswiftDemoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Liyanjun.MyswiftDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MyswiftDemo;
@@ -905,7 +905,7 @@
 				DEVELOPMENT_TEAM = XMRA9CS64A;
 				INFOPLIST_FILE = MyswiftDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hand.MyswiftDemoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Liyanjun.MyswiftDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MyswiftDemo;
