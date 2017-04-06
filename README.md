@@ -11,5 +11,5 @@ demo列表功能以及文章
 >常用日期控件 http://blog.csdn.net/liyanjun201/article/details/54925230 
 
 
->封装fmdb一句话实现增删改查 http://blog.csdn.net/liyanjun201/article/details/54925230 
+>封装fmdb一句话实现增删改查 http://blog.csdn.net/liyanjun201/article/details/55224542
 
