@@ -8,11 +8,16 @@
 
 import UIKit
 
-import UIKit
-
 protocol TapItemDelegate {
     func tapItem(index: Int)
 }
+
+
+enum HeaderTabViewType:Int {
+    case HeaderTabViewShortType = 0 //没有越过屏幕的
+    case HeaderTabViewLongType = 1//需要collectionView 的
+}
+
 
 class HeaderTabView: UIView {
     
@@ -20,14 +25,61 @@ class HeaderTabView: UIView {
     public var itemTitles = [String]()
     var delegate: TapItemDelegate?
     
-    var fullwidth:CGFloat = 0
+    private var viewType:HeaderTabViewType = .HeaderTabViewShortType
     
     private var itemNumber: Int = 0
     private var currentItemIndex: Int = 0
-    private var scrollView = UIView()
+    //    private var scrollView = UIView()//HeaderTabViewShortType 的view
+    
+    lazy  private var scrollView:UIView = {
+        
+        return UIView()
+    }()//HeaderTabViewShortType 的view
+    
     private var selectedColor = SelectedColor
     private var unselectedColor = UnselectedColor
     private var buttons = [UIButton]()
+    
+    
+    
+    //MARK:这是collecitonView的地方
+    
+    var dataSourcemodel:Array<HeaderTabViewCollectionViewCellModel>?
+    
+    var dataSourceCopy:Array<HeaderTabViewCollectionViewCellModel>?
+    
+    
+    lazy  var flowLayout:UICollectionViewFlowLayout = {
+        
+        let layout = UICollectionViewFlowLayout()
+        
+        layout.scrollDirection = .vertical
+        
+        layout.minimumInteritemSpacing = 0 //横线间距
+        
+        layout.minimumLineSpacing = 0//总线
+        
+        layout.estimatedItemSize = CGSize.init(width: 10, height: 10)
+        
+        layout.sectionInset = UIEdgeInsetsMake(0,0,0,0)
+        
+        return layout
+        
+    }()
+    
+    
+    lazy   var collectionView:UICollectionView = {
+        let collectionView:UICollectionView = UICollectionView.init(frame: self.bounds, collectionViewLayout: self.flowLayout)
+        
+        
+        
+        
+        
+        return collectionView
+    }()//HeaderTabViewLongType 的view
+    
+    
+   
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -41,8 +93,18 @@ class HeaderTabView: UIView {
     init(frame: CGRect, itemTitles: [String] ) {
         super.init(frame: frame)
         self.itemTitles = itemTitles
+        self.viewType = .HeaderTabViewShortType
         setup()
     }
+    
+    
+    init(frame: CGRect, itemTitles: [String] ,viewType:HeaderTabViewType) {
+        super.init(frame: frame)
+        self.itemTitles = itemTitles
+        self.viewType = viewType
+        setupLongUi()
+    }
+    
     
     
     override func layoutSubviews() {
@@ -74,10 +136,6 @@ class HeaderTabView: UIView {
         for index in 0 ..< itemNumber {
             let button = UIButton(frame: CGRect(x: CGFloat(index) * itemWidth, y: 0, width: itemWidth, height: itemHeight))
             button.setTitle(itemTitles[index], for: .normal)
-            button.titleLabel?.sizeToFit()
-            
-            self.fullwidth += (button.titleLabel?.frame.width)!
-            
             button.tag = index
             button.addTarget(self, action: #selector(tapButton(_:)), for: .touchUpInside)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -90,8 +148,6 @@ class HeaderTabView: UIView {
             self.addSubview(button)
             
         }
-        
-        debugPrint("应该的宽度是\(self.fullwidth),屏幕宽度是。。\(screenWidth)")
         
         scrollView.frame = getScrollViewFrame()
         scrollView.backgroundColor = selectedColor
@@ -143,4 +199,158 @@ class HeaderTabView: UIView {
     }
     
     
+    
+    func masScale(x:Float) -> Float {
+        
+        let width  = Float(screenWidth)
+        
+        
+        return x * width / 320
+    }
+    
+    //MARK:这是collecitonView的地方
+   
+    
+    func collectionviewP()  {
+        
+        self.collectionView.delegate = self
+        
+        self.collectionView.dataSource = self
+        
+        self.collectionView.backgroundColor = UIColor.red
+        
+        self.collectionView.showsHorizontalScrollIndicator = false
+        
+        self.collectionView.register(HeaderTabViewCollectionViewCell.self, forCellWithReuseIdentifier: HeaderTabViewCollectionViewCell.cellId)
+        
+        
+
+    }
+
+    func collectionviewF()  {
+        collectionView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self)
+        }
+    }
+    
+   
+    
+    func setupLongUi()  {
+        self.backgroundColor = UIColor.white
+        
+        self.addSubview(self.collectionView)
+        
+        self.collectionviewP()
+        
+        self.collectionviewF()
+        
+       let count  =  self.itemTitles.count - 1
+        
+        self.dataSourcemodel = Array()
+        
+       self.dataSourceCopy = Array()
+        
+        self.dataSourcemodel?.removeAll()
+        self.dataSourceCopy?.removeAll()
+        
+        for index in 0...count {
+            var model = HeaderTabViewCollectionViewCellModel.init(textStr: self.itemTitles[index], isSelectTed: false)
+            
+            self.dataSourceCopy?.append(model)
+            
+            if index == 0 {
+                model.isSelectTed = true
+            }
+            self.dataSourcemodel?.append(model)
+            
+            
+        }
+        
+       self.collectionView.reloadData()
+    }
+    
+    
 }
+
+
+extension HeaderTabView:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+
+    
+//MARK:UICollectionViewDelegate
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+       
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        self.dataSourcemodel = self.dataSourceCopy
+        
+        var model  = self.dataSourcemodel?[indexPath.row]
+        
+        model?.isSelectTed = true
+        
+      
+        
+      self.dataSourcemodel?[indexPath.row] = model!
+        
+        
+        self.collectionView.reloadData()
+        
+        
+    }
+//MARK:UICollectionViewDataSource
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+       return self.itemTitles.count
+    }
+    
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    
+    
+    
+     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+    
+        debugPrint("测试123123")
+        
+        let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderTabViewCollectionViewCell.cellId, for: indexPath) as! HeaderTabViewCollectionViewCell
+        
+        let model  = self.dataSourcemodel?[indexPath.row]
+        
+        
+        cell.dataBind(model: model!)
+        
+        cell.backgroundColor = UIColor.blue
+        return cell
+    }
+    
+   
+  //MARK:UICollectionViewDelegateFlowLayout
+    
+//    //内编剧
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        let top:CGFloat = 0;
+//        
+//        let bot:CGFloat = 0;
+//        
+//        let left:CGFloat = 0;
+//        
+//        let right:CGFloat = 0;
+//        
+//        
+//        
+//        return UIEdgeInsets.init(top: top, left: left, bottom: bot, right: right)
+//        
+//    }
+
+}
+
+
+
+
+
+
+

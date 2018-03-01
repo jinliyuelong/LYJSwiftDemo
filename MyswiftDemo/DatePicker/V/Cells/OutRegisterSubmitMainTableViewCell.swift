@@ -227,6 +227,8 @@ class OutRegisterSubmitMainTableViewCell: UITableViewCell {
             make.leading.equalTo(self.promptlable.snp.trailing)
             
             make.height.equalTo(commontextViewHeight)
+            
+            make.bottom.equalTo(self.contentView.snp.bottom).offset(-bordertopbottom*2)
         }
         
         
@@ -239,7 +241,7 @@ class OutRegisterSubmitMainTableViewCell: UITableViewCell {
     
     func setContenF(){
         contentView.snp.remakeConstraints({ (make) in
-            make.bottom.equalTo(self.infoTextView.snp.bottom).offset(bordertopbottom*2)
+            make.bottom.equalTo(self)
             make.leading.equalTo(self)
         
             make.top.equalTo(self)

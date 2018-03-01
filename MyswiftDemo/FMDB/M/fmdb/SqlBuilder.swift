@@ -111,6 +111,57 @@ class SqlBuilder: NSObject {
     }
     
     
+    // MARK:  修改表 增加字段
+ class   func buildAlterTable(myclass:AnyClass,column:String) ->  String {
+        let tableInfo = TableInfo.getTableInfo(myclass: myclass)
+        
+        
+        var  alterSql = "ALTER TABLE "
+        alterSql.append(tableInfo._myTableName)
+        
+        alterSql.append(" ADD ")
+        for property in tableInfo._propertyMap! {
+          
+            let value = property.value as AnyObject
+            
+            if value.contains("NSNumber") {
+                alterSql.append(property.key)
+                alterSql.append(" INTEGER")
+            }else if value.contains("NSData"){
+                alterSql.append(property.key)
+                alterSql.append(" BLOB")
+            }else if value.contains("NSString"){
+                alterSql.append(property.key)
+                alterSql.append(" TEXT")
+            }else if value.contains("TB"){//bool
+                alterSql.append(property.key)
+                alterSql.append("   Boolean Default '0'")
+            }else if value.contains("Tq"){//Int
+                alterSql.append(property.key)
+                alterSql.append("  INTEGER")
+            }else if value.contains("Tf"){//float
+                alterSql.append(property.key)
+                alterSql.append("  REAL")
+            }else if value.contains("Td"){//double
+                alterSql.append(property.key)
+                alterSql.append("  Double")
+            }else if value.contains("PrimaryKey"){
+                alterSql.append(property.key)
+                alterSql.append("  INTEGER PRIMARY KEY AUTOINCREMENT,")
+            }else{
+                //不支持的话，则忽略不创建
+                
+                continue
+                
+                //                assertionFailure("Name for \(property.key) element type - \(value) does not support ")
+                
+            }
+            
+        }
+        
+        return alterSql
+    }
+    
     //MARK: 创建表 语句 sql
     class   func buildCreatTableSql(myclass:AnyClass) ->  String {
         
@@ -140,7 +191,7 @@ class SqlBuilder: NSObject {
                 creatSql.append(" TEXT,")
             }else if value.contains("TB"){//bool
                 creatSql.append(property.key)
-                creatSql.append("  INTEGER,")
+                creatSql.append("   Boolean Default '0',")
             }else if value.contains("Tq"){//Int
                 creatSql.append(property.key)
                 creatSql.append("  INTEGER,")
@@ -149,7 +200,7 @@ class SqlBuilder: NSObject {
                 creatSql.append("  REAL,")
             }else if value.contains("Td"){//double
                 creatSql.append(property.key)
-                creatSql.append("  REAL,")
+                creatSql.append("  Double,")
             }else if value.contains("PrimaryKey"){
                 creatSql.append(property.key)
                 creatSql.append("  INTEGER PRIMARY KEY AUTOINCREMENT,")

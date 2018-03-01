@@ -109,7 +109,7 @@ class ViewTableViewCell: UITableViewCell {
     
     func setContenF(){
         contentView.snp.makeConstraints({ (make) in
-            make.bottom.equalTo(self.content.snp.bottom).offset(mycommonEdge)
+            make.bottom.equalTo(self)
             make.leading.equalTo(self)
             make.top.equalTo(self)
             make.trailing.equalTo(self)

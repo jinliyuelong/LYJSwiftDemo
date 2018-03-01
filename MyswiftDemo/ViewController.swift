@@ -113,7 +113,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: ViewTableViewCell.cellId)! as!  ViewTableViewCell
             
             
-            cell.selectionStyle = .none
+//            cell.selectionStyle = .none
         
         cell.accessoryType = .disclosureIndicator//设置箭头
         
@@ -136,6 +136,8 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
+        tableView.deselectRow(at: indexPath, animated: true)
         
         let vc = self.tableCells[indexPath.row]
         

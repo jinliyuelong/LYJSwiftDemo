@@ -25,7 +25,6 @@
 		C51DD48E1E4C6D49006B15B7 /* TableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51DD48D1E4C6D49006B15B7 /* TableInfo.swift */; };
 		C51DEB271E640106008331E6 /* HeaderTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51DEB261E640106008331E6 /* HeaderTabView.swift */; };
 		C51DEB291E640286008331E6 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51DEB281E640286008331E6 /* HeaderViewController.swift */; };
-		C51DEB2B1E640CA7008331E6 /* LYJHeaderTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51DEB2A1E640CA7008331E6 /* LYJHeaderTabView.swift */; };
 		C56925AD1E29D0FC00AF3E5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56925AC1E29D0FC00AF3E5D /* AppDelegate.swift */; };
 		C56925AF1E29D0FC00AF3E5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56925AE1E29D0FC00AF3E5D /* ViewController.swift */; };
 		C56925B21E29D0FC00AF3E5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C56925B01E29D0FC00AF3E5D /* Main.storyboard */; };
@@ -42,6 +41,7 @@
 		C56925EB1E29DFDD00AF3E5D /* QRcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56925E71E29DFDD00AF3E5D /* QRcodeViewController.swift */; };
 		C56925EC1E29DFDD00AF3E5D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56925E81E29DFDD00AF3E5D /* WebViewController.swift */; };
 		C56925EE1E29E0C300AF3E5D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56925ED1E29E0C300AF3E5D /* UIViewController+Extension.swift */; };
+		C5A34EE91EA0A3EC0064CB1E /* HeaderTabViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A34EE81EA0A3EC0064CB1E /* HeaderTabViewCollectionViewCell.swift */; };
 		C5C759061E514A1300222A75 /* TestFmdbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C759051E514A1300222A75 /* TestFmdbViewController.swift */; };
 		C5C759081E514BF400222A75 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C759071E514BF400222A75 /* TestModel.swift */; };
 		C5C7590C1E514F2500222A75 /* PrimaryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7590B1E514F2500222A75 /* PrimaryKey.swift */; };
@@ -49,6 +49,7 @@
 		C5C759101E5164AB00222A75 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7590F1E5164AB00222A75 /* String+Extension.swift */; };
 		C5C759121E51903700222A75 /* SqlInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C759111E51903700222A75 /* SqlInfo.swift */; };
 		C5C759141E52B34F00222A75 /* NSObject+LYJFMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C759131E52B34F00222A75 /* NSObject+LYJFMDB.swift */; };
+		C5F151AE1EA8ACDB004E13DD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F151AD1EA8ACDB004E13DD /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +94,6 @@
 		C51DD48D1E4C6D49006B15B7 /* TableInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableInfo.swift; sourceTree = "<group>"; };
 		C51DEB261E640106008331E6 /* HeaderTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTabView.swift; sourceTree = "<group>"; };
 		C51DEB281E640286008331E6 /* HeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
-		C51DEB2A1E640CA7008331E6 /* LYJHeaderTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYJHeaderTabView.swift; sourceTree = "<group>"; };
 		C56925A91E29D0FC00AF3E5D /* MyswiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyswiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C56925AC1E29D0FC00AF3E5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C56925AE1E29D0FC00AF3E5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +116,7 @@
 		C56925E71E29DFDD00AF3E5D /* QRcodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRcodeViewController.swift; sourceTree = "<group>"; };
 		C56925E81E29DFDD00AF3E5D /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		C56925ED1E29E0C300AF3E5D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		C5A34EE81EA0A3EC0064CB1E /* HeaderTabViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTabViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		C5C759051E514A1300222A75 /* TestFmdbViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFmdbViewController.swift; sourceTree = "<group>"; };
 		C5C759071E514BF400222A75 /* TestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		C5C7590B1E514F2500222A75 /* PrimaryKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryKey.swift; sourceTree = "<group>"; };
@@ -123,6 +124,7 @@
 		C5C7590F1E5164AB00222A75 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		C5C759111E51903700222A75 /* SqlInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SqlInfo.swift; sourceTree = "<group>"; };
 		C5C759131E52B34F00222A75 /* NSObject+LYJFMDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+LYJFMDB.swift"; sourceTree = "<group>"; };
+		C5F151AD1EA8ACDB004E13DD /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,8 +343,9 @@
 		C51DEB251E6400E6008331E6 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				C5A34EE71EA0A3D60064CB1E /* CollectionCells */,
 				C51DEB261E640106008331E6 /* HeaderTabView.swift */,
-				C51DEB2A1E640CA7008331E6 /* LYJHeaderTabView.swift */,
+				C5F151AD1EA8ACDB004E13DD /* TestView.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -441,6 +444,14 @@
 				C56925E81E29DFDD00AF3E5D /* WebViewController.swift */,
 			);
 			path = QRcode;
+			sourceTree = "<group>";
+		};
+		C5A34EE71EA0A3D60064CB1E /* CollectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				C5A34EE81EA0A3EC0064CB1E /* HeaderTabViewCollectionViewCell.swift */,
+			);
+			path = CollectionCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -633,9 +644,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C515AD7B1E49EA2200C8DE08 /* UILabel+Extension.swift in Sources */,
+				C5F151AE1EA8ACDB004E13DD /* TestView.swift in Sources */,
 				C56925E31E29DD2300AF3E5D /* MainUINavigationBar.swift in Sources */,
 				C5C7590E1E5157CE00222A75 /* SqlBuilder.swift in Sources */,
-				C51DEB2B1E640CA7008331E6 /* LYJHeaderTabView.swift in Sources */,
 				C56925E91E29DFDD00AF3E5D /* ScannerBackgroundView.swift in Sources */,
 				C5C759121E51903700222A75 /* SqlInfo.swift in Sources */,
 				C5C759081E514BF400222A75 /* TestModel.swift in Sources */,
@@ -655,6 +666,7 @@
 				C515AD661E49723E00C8DE08 /* DrawSignatureView.swift in Sources */,
 				C56925DE1E29D49300AF3E5D /* LYJPch.swift in Sources */,
 				C515AD641E496A2300C8DE08 /* UIButton+Extension.swift in Sources */,
+				C5A34EE91EA0A3EC0064CB1E /* HeaderTabViewCollectionViewCell.swift in Sources */,
 				C51DEB291E640286008331E6 /* HeaderViewController.swift in Sources */,
 				C56925AD1E29D0FC00AF3E5D /* AppDelegate.swift in Sources */,
 				C515AD761E49E7DA00C8DE08 /* DatePickerViewController.swift in Sources */,

@@ -450,9 +450,20 @@ class FmormDatabase: NSObject {
         if !self.isTableExist(tableInfo: tableInfo) {
             let result =  self.excute(sql: SqlBuilder.buildCreatTableSql(myclass: myclass), param: nil)
             
-            
+             debugPrint("查询结果\(result)")
             return result
-            debugPrint("查询结果\(result)")
+           
+        }else{
+            for property in tableInfo._propertyMap! {
+                if(!self.istableExistColum(tableName: tableInfo._myTableName, colum: property.key)){
+                    let aterSql = SqlBuilder.buildAlterTable(myclass: myclass, column: property.key)
+                    
+                    self.excute(sql: aterSql, param: nil)
+                    
+                    
+                }
+                
+            }
         }
         
         
@@ -460,6 +471,8 @@ class FmormDatabase: NSObject {
         
         
     }
+    
+    
     
     //MARK:判断是否存在
     func checkTableExistsNotCreate(myclass:AnyClass) ->Bool {
@@ -469,12 +482,34 @@ class FmormDatabase: NSObject {
         
         return self.isTableExist(tableInfo: tableInfo)
         
-        return true
+  
         
         
     }
     
     
+    func istableExistColum(tableName:String,colum:String) -> Bool {
+        var state = false
+        
+        
+        databasepool!.inDatabase { (db) in
+              let db = db!
+           state =  db.columnExists(colum, inTableWithName: tableName)
+            if state{
+                
+                db.commit()
+                
+            }else{
+                
+                self.lastError = db.lastError()
+                
+                
+            }
+        }
+        
+        return state
+            
+    }
     
     func isTableExist(tableInfo:TableInfo) -> Bool{
         

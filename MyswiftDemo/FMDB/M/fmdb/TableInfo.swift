@@ -90,7 +90,7 @@ class TableInfo: NSObject {
             
          
             
-            
+            debugPrint("proertyName = \(String(describing: propertyName)),attname = \(String(describing: attributeName))")
             
             _propertyMap?[propertyName!] = attributeName
             

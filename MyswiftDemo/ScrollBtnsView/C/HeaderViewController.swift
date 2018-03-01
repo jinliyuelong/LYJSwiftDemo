@@ -41,24 +41,29 @@ class HeaderViewController: UIViewController {
         
         
         
-        let frame = CGRect(x: 0, y: 60, width: screenWidth, height: 38)
+        let frame = CGRect(x: 0, y: 60, width: screenWidth, height: 60)
 //        
-        self.headerTabView = HeaderTabView(frame: frame, itemTitles:itemTitles)
+//        self.headerTabView = HeaderTabView(frame: frame, itemTitles:itemTitles)
+        
+//        self.headerTabView = HeaderTabView.init(frame: frame, itemTitles: itemTitles, viewType: .HeaderTabViewLongType)
+//        
+//        
+//        self.headerTabView!.delegate = self
+        
+
+        let view = TestView.init(frame: frame)
         
         
-        self.headerTabView!.delegate = self
-        
-       
-        
-        self.view.addSubview(self.headerTabView!)
+        self.view.addSubview(view)
         
         
-        let button = UIButton()
-        
-        button.tag = self.tagtoTap
-        
-        self.headerTabView?.tapButton(button)
-      
+//        
+//        let button = UIButton()
+//        
+//        button.tag = self.tagtoTap
+//        
+//        self.headerTabView?.tapButton(button)
+//      
         
     }
 
